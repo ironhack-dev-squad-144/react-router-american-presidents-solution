@@ -71,3 +71,13 @@ a {
 .table-center td, .table-center th {
   padding: 8px;
 }
+
+
+.row {
+  display: flex;
+}
+
+.col {
+  height: calc(100vh - 143px);
+  overflow: scroll;
+}

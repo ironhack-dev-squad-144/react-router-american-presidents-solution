@@ -11,6 +11,65 @@ npm install
 npm start
 ```
 
+## Steps to reproduce
+
+First, install a new package.
+```
+$ npm install react-router-dom
+```
+
+Then, inside `src/index.js`:
+```js
+import { BrowserRouter as Router} from 'react-router-dom'
+// ...
+
+ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
+```
+
+Then, inside `src/components/App.js`, you need to add:
+- `Switch`: Only the first route inside `Switch` is rendered
+- `Route`: Tool to render a component when the URL match the `path`
+
+```js
+import { Switch, Route } from 'react-router-dom';
+
+// ...
+
+function App() {
+  return (
+    <div className="App">
+      {/* ... */}
+
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route path='/about' component={About}/>
+        <Route path='/list-presidents' component={ListPresidents}/>
+        <Route render={() => <h1>404</h1>}/>
+      </Switch>
+    </div>
+  )
+}
+```
+
+To make sure it works, try to go to different URL:
+- http://localhost:3000/
+- http://localhost:3000/about
+- http://localhost:3000/list-presidents
+- http://localhost:3000/carrot
+
+Then, with React Router, all `<a href="...">` tags have to be replaced by: `<Link to="...">` or `<NavLink to="...">`. The `<NavLink>` is usually used in the navbar because it adds the className "active" when the URL match the `to`.
+
+So you have to replace the `<a>` inside `src/components/MainNavbar.jsx`.
+
+Next steps:
+- Loop inside `src/components/pages/ListPresidents/jsx` to display the list of all presidents
+- Inside the table, for each president, add a "Detail" link to `/president-detail/42` (in the case of Bill Clinton that is number 42)
+- Inside the `App` component, add a `Route` for `PresidentDetail`
+
+
+
+
+
 
 ## Information about React Router
 

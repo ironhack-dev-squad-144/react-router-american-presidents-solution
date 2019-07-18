@@ -1,5 +1,6 @@
-import React from 'react'
-import presidents from '../../presidents'
+import React from "react";
+import presidents from "../../presidents";
+import { Link } from "react-router-dom";
 
 export default function ListPresidents() {
   return (
@@ -14,23 +15,17 @@ export default function ListPresidents() {
           </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>George Washington</td>
-            <td><a href="#">Detail</a></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>John Adams</td>
-            <td><a href="#">Detail</a></td>
-          </tr>
-          <tr>
-            <td>...</td>
-            <td>TODO: display all presidents</td>
-            <td>...</td>
-          </tr>
+          {presidents.map(president => (
+            <tr key={president.number}>
+              <td>{president.number}</td>
+              <td>{president.president}</td>
+              <td>
+                <Link to={"/president-detail/" + president.number}>Detail</Link>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
-  )
+  );
 }
