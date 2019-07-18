@@ -1,5 +1,9 @@
 # React Router American Presidents
 
+## Screenshot
+![image](https://user-images.githubusercontent.com/5306791/61461113-f80f7900-a967-11e9-8eeb-c89a336fa736.png)
+
+
 ## To start the project
 
 To start the project, clone the project (fork it before and clone the forked version if you want to push later), install the packages and start the React applicaiton:
